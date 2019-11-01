@@ -1,7 +1,5 @@
 package com.itla.registroestudieantes.repositories;
 
-
-
 import android.content.Context;
 
 import com.itla.registroestudieantes.daointerfaces.CarreraDao;

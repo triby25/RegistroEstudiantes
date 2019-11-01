@@ -16,8 +16,6 @@ import com.itla.registroestudieantes.models.Estudiante;
 import com.itla.registroestudieantes.repositories.CarreraRepository;
 import com.itla.registroestudieantes.repositories.EstudianteRepository;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CreateEstudianteActivity extends AppCompatActivity {

@@ -13,7 +13,6 @@ import com.itla.registroestudieantes.adapters.CarreraAdapter;
 import com.itla.registroestudieantes.models.Carrera;
 import com.itla.registroestudieantes.repositories.CarreraRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ListCarrerasActivity extends AppCompatActivity {

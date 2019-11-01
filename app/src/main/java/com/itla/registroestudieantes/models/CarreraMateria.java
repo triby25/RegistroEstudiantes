@@ -1,7 +1,5 @@
 package com.itla.registroestudieantes.models;
 
-import android.content.Intent;
-
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 

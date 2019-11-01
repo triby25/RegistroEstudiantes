@@ -1,15 +1,9 @@
 package com.itla.registroestudieantes.models;
 
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
-import androidx.room.Index;
 import androidx.room.PrimaryKey;
-import androidx.room.Relation;
 
-@Entity(foreignKeys = @ForeignKey(entity = Carrera.class,
-        parentColumns = "id",
-        childColumns = "idcarrera",
-        onDelete = ForeignKey.NO_ACTION), indices = @Index({"idcarrera"}))
+@Entity
 public class Estudiante {
     @PrimaryKey(autoGenerate = true)
     private Integer id;
