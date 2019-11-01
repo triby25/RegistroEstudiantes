@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.itla.registroestudieantes.adapters.MateriaAdapter;
 import com.itla.registroestudieantes.models.Carrera;
+import com.itla.registroestudieantes.models.CarreraMateria;
 import com.itla.registroestudieantes.models.Materia;
 import com.itla.registroestudieantes.repositories.CarreraMateriaRepository;
 import com.itla.registroestudieantes.repositories.CarreraRepository;
@@ -59,12 +60,21 @@ public class CreateCarreraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 carreraRepository= new CarreraRepository(v.getContext());
-                Materia materia = (Materia) spinner.getSelectedItem();
+
                 Carrera carrera = new Carrera();
                 carrera.setNombre(etnamecarrera.getText().toString());
                 carreraRepository.insert(carrera);
 
                 CarreraMateriaRepository carrera_materiaRepositorioDb = new CarreraMateriaRepository(getApplicationContext());
+                carrera_materiaRepositorioDb.deleteAll(carrera.getId());
+
+                for (Materia materia:rcmaterias) {
+                    CarreraMateria carreraMateria = new CarreraMateria();
+                    carreraMateria.setIdcarrera(carrera.getId());
+                    carreraMateria.setIdmateria(materia.getId());
+                    carrera_materiaRepositorioDb.insert(carreraMateria);
+                }
+
                 etnamecarrera.setText("");
 
                 Toast.makeText(getApplicationContext(),"Carrera Guardada",Toast.LENGTH_SHORT).show();
