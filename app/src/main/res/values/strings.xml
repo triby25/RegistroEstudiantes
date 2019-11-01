@@ -3,4 +3,9 @@
     <string name="guardar">Guardar</string>
     <string name="nombre_estudiante">Nombre Estudiante</string>
     <string name="matricula">Matrícula</string>
+    <string name="crear_estudiante">Crear Estudiante</string>
+    <string name="nueva_carrera">Nueva Carrera</string>
+    <string name="nueva_materia">Nueva Materia</string>
+    <string name="nombre_materia">Nombre Materia</string>
+    <string name="cantidad_de_creditos">Cantidad De Créditos</string>
 </resources>

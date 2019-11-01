@@ -9,48 +9,49 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.itla.registroestudieantes.adapters.EstudianteAdaptador;
-import com.itla.registroestudieantes.models.EstudianteWithCarrera;
-import com.itla.registroestudieantes.repositories.EstudianteRepository;
+import com.itla.registroestudieantes.adapters.CarreraAdapter;
+import com.itla.registroestudieantes.models.Carrera;
+import com.itla.registroestudieantes.repositories.CarreraRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class ListCarrerasActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private  RecyclerView.LayoutManager layoutManager;
-    EstudianteRepository estudianteRepository;
+    CarreraRepository carreraRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_list_carreras);
 
-        final Button btnnewestudent = findViewById(R.id.btnnewestmain);
-        btnnewestudent.setOnClickListener(new View.OnClickListener() {
+        Button btnnewarrera = findViewById(R.id.btnnewcarrera);
+        carreraRepository = new CarreraRepository(this);
+        cargarCarrera();
+        btnnewarrera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),CreateEstudianteActivity.class);
+                Intent intent = new Intent(getApplicationContext(),CreateCarreraActivity.class);
                 startActivityForResult(intent,1);
             }
         });
-
-        loadEstudents();
     }
 
-    private void loadEstudents(){
-        List<EstudianteWithCarrera> estudiantes = estudianteRepository.getAllWithCarrera();
+    private void cargarCarrera(){
+        List<Carrera> carreras = carreraRepository.getAll();
 
-        recyclerView=findViewById(R.id.rvestmain);
+        recyclerView=findViewById(R.id.rvlistcarreras);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter=new EstudianteAdaptador(estudiantes);
+        adapter=new CarreraAdapter(carreras);
         recyclerView.setAdapter(adapter);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        loadEstudents();
+        cargarCarrera();
     }
 }

@@ -1,9 +1,13 @@
-package com.itla.registroestudieantes.entidades;
+package com.itla.registroestudieantes.models;
 
-public class Estudiante {
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity
+public class Carrera {
+    @PrimaryKey(autoGenerate = true)
     private Integer id;
     private String nombre;
-    private String matricula;
 
     public Integer getId() {
         return id;
@@ -21,11 +25,8 @@ public class Estudiante {
         this.nombre = nombre;
     }
 
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    @Override
+    public String toString() {
+        return  nombre;
     }
 }

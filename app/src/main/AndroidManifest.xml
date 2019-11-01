@@ -3,6 +3,8 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.itla.registroestudieantes">
 
+    <dist:module dist:instant="true" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ListCarrerasActivity"></activity>
+        <activity android:name=".ListMateriasActivity" />
+        <activity android:name=".CreateMateriaActivity" />
+        <activity android:name=".CreateCarreraActivity" />
+        <activity android:name=".repositories.CreateCarreraActivity" />
+        <activity android:name=".CreateEstudianteActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +26,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <dist:module dist:instant="true" />
 
 </manifest>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateCarreraActivity">
+
+    <EditText
+        android:id="@+id/etnamecarreramain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="@string/nombre_materia"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spmaterias"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnaddmateriatolist"
+        app:layout_constraintEnd_toStartOf="@+id/btnaddmateriatolist"
+        app:layout_constraintStart_toStartOf="@+id/etnamecarreramain"
+        app:layout_constraintTop_toTopOf="@+id/btnaddmateriatolist" />
+
+    <Button
+        android:id="@+id/btnaddmateriatolist"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="4dp"
+        android:text="+"
+        app:layout_constraintBottom_toBottomOf="@+id/btnnewmateria"
+        app:layout_constraintEnd_toStartOf="@+id/btnnewmateria"
+        app:layout_constraintStart_toEndOf="@+id/spmaterias"
+        app:layout_constraintTop_toTopOf="@+id/btnnewmateria" />
+
+    <Button
+        android:id="@+id/btnnewmateria"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:text="++"
+        app:layout_constraintEnd_toEndOf="@+id/etnamecarreramain"
+        app:layout_constraintStart_toEndOf="@+id/btnaddmateriatolist"
+        app:layout_constraintTop_toBottomOf="@+id/etnamecarreramain" />
+
+    <Button
+        android:id="@+id/btnsavecarrera"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/guardar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rvlistmateriacarrera"
+        app:layout_constraintStart_toStartOf="@+id/rvlistmateriacarrera"
+        app:layout_constraintTop_toBottomOf="@+id/rvlistmateriacarrera" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvlistmateriacarrera"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnsavecarrera"
+        app:layout_constraintEnd_toEndOf="@+id/btnnewmateria"
+        app:layout_constraintStart_toStartOf="@+id/spmaterias"
+        app:layout_constraintTop_toBottomOf="@+id/btnaddmateriatolist"
+        app:layout_constraintVertical_bias="0.348" />
+</androidx.constraintlayout.widget.ConstraintLayout>
