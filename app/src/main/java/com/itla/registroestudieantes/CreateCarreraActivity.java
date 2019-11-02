@@ -87,6 +87,11 @@ public class CreateCarreraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Materia materia = (Materia) spinner.getSelectedItem();
+                Materia materiaSearch = rcmaterias.stream().filter(m ->m.getId()==materia.getId() ).findAny().orElse(null);
+                if(materiaSearch!=null){
+                    Toast.makeText(getApplicationContext(),"La materia seleccionada ya existe en el listado",Toast.LENGTH_LONG).show();
+                    return;
+                }
                 rcmaterias.add(materia);
                 adapter.notifyDataSetChanged();
             }
